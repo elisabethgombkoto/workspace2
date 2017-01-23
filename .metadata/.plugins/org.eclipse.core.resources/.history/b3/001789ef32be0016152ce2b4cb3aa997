@@ -1,0 +1,11 @@
+package hue06.task1.GarphErzeugen;
+
+public class Operator {
+	
+private String _operator;
+
+
+public Operator(String operator) {
+	_operator=operator;
+}
+}

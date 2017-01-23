@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package hue10.SchiftPuzzle;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class EffectiveBranchingFactorCalculator {
+	public static double calculate(double n, double d) {
+		double b = 1.5;
+		double newB;
+		double tolerance = 0.01;
+		while (Math.abs(b - (newB = approximateFactor(b, n, d))) > tolerance) {
+			b = newB;
+		}
+		// round for two digits after comma
+		b = Math.round(100.0 * b) / 100.0;
+		return b;
+	}
+
+	private static double approximateFactor(double b, double n, double d) {
+		double func = Math.pow(b, (d + 1)) - (n * b) + n - 1;
+		double derivedFunc = (d + 1) * Math.pow(b, d) - n;
+
+		// newton's approxmiation
+		double newB = b - (func / derivedFunc);
+		return newB;
+	}
+}

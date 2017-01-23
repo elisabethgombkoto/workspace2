@@ -1,0 +1,145 @@
+package hue06.task1.GarphErzeugen;
+
+/**
+ * @author Elisabeth Gombkötö
+ * 
+ *Wenn als default Wert Integer 0 bei Kantengewicht nicht akzeptabel 
+ *sollte je nach Parametizierung default wert neu implementiert werden.
+ *
+ * @param <Intger>
+ * @param default parameter Integer 0, if WeightOfEdge<T> _weight do not exist
+ * 
+ */
+public class Edge<T>{
+		
+		private T _vertexFrom;
+		private T _vertexTo;
+		
+		private T<Weight> _weight=null;
+		
+		
+		/**
+		 * @param from--> Kante startet von diesen Object
+		 * @param to--> Kante endet bei diesen Object
+		 * @param weight--> Gewichtet Kante
+		 */
+		public Edge( T vertexFrom, T vertexTo, T weigth){
+			_vertexFrom=vertexFrom;
+			_vertexTo=vertexTo;
+			_weight=weigth;
+			_existPath=true;
+		}
+		
+		
+
+		/**
+		 * Constructor.
+		 * 
+		 * Erzeugt ungewichtet Kanten Object, 
+		 * WeightOfEdg<Integer> object wird im hintergrungerzeug und  mit -1 inizialisiert
+		 * 
+		 * @param from --> Kante startet von diesen Object
+		 * @param to --> Kante endet bei diesen Object
+		 * @param unaviable -> ungewichtet Kante, Wert Integer=-1, bei bedarf andere default werte setzen
+		 * 
+		 * @see set_verttexFrom()
+		 * @see set_verttexTo()
+		 * @see unavailable()
+		 */
+		
+		public Edge (T vertexFrom, T vertexTo){
+			_vertexFrom=vertexFrom;
+			_vertexTo=vertexTo;
+			_existPath=isEdge();
+		}
+
+
+
+		private boolean isEdge() {
+			if()
+			return false;
+		}
+public boolean hasWeight(){
+	
+}
+
+
+		/**
+		 * @return the _vertexFrom
+		 */
+		public T get_vertexFrom() {
+			return _vertexFrom;
+		}
+
+
+
+		/**
+		 * @param _vertexFrom the _vertexFrom to set
+		 */
+		public void set_vertexFrom(T _vertexFrom) {
+			this._vertexFrom = _vertexFrom;
+		}
+
+
+
+		/**
+		 * @return the _vertexTo
+		 */
+		public T get_vertexTo() {
+			return _vertexTo;
+		}
+
+
+
+		/**
+		 * @param _vertexTo the _vertexTo to set
+		 */
+		public void set_vertexTo(T _vertexTo) {
+			this._vertexTo = _vertexTo;
+		}
+
+
+
+		/**
+		 * @return the _existPath
+		 */
+		public boolean is_existPath() {
+			return _existPath;
+		}
+
+
+
+		/**
+		 * @param _existPath the _existPath to set
+		 */
+		public void set_existPath(boolean _existPath) {
+			this._existPath = _existPath;
+		}
+
+
+
+		/**
+		 * @return the _weight
+		 */
+		public T get_weight() {
+			return _weight;
+		}
+
+
+
+		/**
+		 * @param _weight the _weight to set
+		 */
+		public void set_weight(T _weight) {
+			this._weight = _weight;
+		}		
+			
+
+		
+		
+
+		
+		
+		
+	}
+	

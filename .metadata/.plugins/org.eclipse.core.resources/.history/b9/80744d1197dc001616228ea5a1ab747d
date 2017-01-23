@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.Set;
+import java.util.Stack;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class Solutions {
+	public  boolean _isSolved;
+	public  List<Puzzel8> _solutionNodes;
+	public int amountCreatedNodes;
+	public  Set<Puzzel8> closeList;
+	/**
+	 * @param isSolved
+	 * @param result
+	 * @param expansion
+	 * @param closeList
+	 */
+	public Solutions(boolean isSolved, Stack<Puzzel8> result, int expansion, Set<Puzzel8> closeList) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,10 @@
+1481809382446	Encapsulate field '_lname'
+1481809387505	Encapsulate field '_fname'
+1481809399499	Encapsulate field '_salary'
+1481809415158	Encapsulate field '_persno'
+1481810224549	Delete element
+1481810633507	Delete element
+1481810854798	Rename field '_salary'
+1481810869113	Rename field '_persno'
+1481811204500	Delete element
+1481811446907	Rename resource 'hibarnate.cfg.xml'

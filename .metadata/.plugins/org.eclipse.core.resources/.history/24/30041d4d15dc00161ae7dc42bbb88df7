@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+import hue10.puzzel8.Puzzel8.Hole;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public class H2 extends PuzzelSolver{
+
+	/* (non-Javadoc)
+	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+	 */
+	@Override
+	public int compare(Puzzel8 p1, Puzzel8 p2) {
+		int[][] endP1=p1.get_end();
+		int errorSummeP1=0;
+		
+		for (int i = 0; i < 3; i++) {
+	        for (int  j =0; j < 3; j++) {
+	        	if(endP1[i][j]==p1.get_gamefield()[i][j]){
+	        		errorSummeP1=errorSummeP1;
+	        	}else{
+	        		.
+	        	}
+	        }
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see hue10.puzzel8.PuzzelSolver#getNextState(hue10.puzzel8.Puzzel8)
+	 */
+	@Override
+	protected Queue<Puzzel8> getNextState(Puzzel8 state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

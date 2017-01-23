@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package hue10.ShiftPuzzle;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Comparator;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class H1AchterPuzzleSolver extends AchterPuzzleSolver {
+	@Override
+	protected Queue<AchterPuzzle> getOpenListInstance(AchterPuzzle end) {
+		return new PriorityQueue<AchterPuzzle>(new Comparator<AchterPuzzle>() {
+			@Override
+			public int compare(AchterPuzzle first, AchterPuzzle second) {
+				return first.h1(end) - second.h1(end);
+			}
+		});
+	}
+}

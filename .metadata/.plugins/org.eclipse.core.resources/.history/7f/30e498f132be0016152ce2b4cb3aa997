@@ -1,0 +1,6 @@
+package hue06.task1.GarphErzeugen;
+
+public class Weight {
+private Operator _operator;
+private Integer _value;
+}

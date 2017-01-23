@@ -1,0 +1,8 @@
+package hue06.task1.GarphErzeugen;
+
+public enum Operatoren {
+
+	public enum Operatoren(){
+		
+	}
+}

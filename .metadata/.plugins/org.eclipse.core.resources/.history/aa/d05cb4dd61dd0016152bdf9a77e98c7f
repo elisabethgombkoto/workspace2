@@ -1,0 +1,84 @@
+/**
+ * 
+ */
+package hue10.ShiftPuzzle;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+import java.util.Stack;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public abstract class AbstractSchiftPuzzelSolver implements ShiftPuzzleSolvable{
+	@Override
+	public ResultCollection solve(ShiftPuzzle start, ShiftPuzzle end) {
+
+		// check if the given start state already is the end state.
+		// nothing has to be solved then.
+		boolean foundSolution = start.equals(end);
+		
+		int expansions = 0;
+		Stack<ShiftPuzzle> result = new Stack<ShiftPuzzle>();
+		
+		Set<ShiftPuzzle> closeList = new HashSet<ShiftPuzzle>();
+		// HERE is the difference between uninformed and informed search.
+		// an uninformed queue does not sort the next steps by their efficiency.
+		// an informed queue (PriorityQueue) does sort elements by a comparator.
+		// the comparator must know, how to compare two items, for a sorted insertion.
+		Queue<ShiftPuzzle> openList = getOpenQueueInstance(end);
+		
+		ShiftPuzzle c = start;
+		openList.offer(c);
+
+		// as long as there are unmarked items and no solution is found
+		while (!openList.isEmpty() && !foundSolution) {
+			// try to find solution
+
+			// get first element in queue
+			c = openList.poll();
+			
+			// mark it as visited
+			closeList.add(c);
+
+			// check if the end is reached
+			foundSolution = c.equals(end);
+
+			//if there current state is not the solution,
+			//have a look at the current adjacencies.
+			if (!foundSolution) {
+				// get all the possible next states
+				List<ShiftPuzzle> neighbors = c.getChildren();
+
+				// add possible unvisited steps to queue
+				for (ShiftPuzzle n : neighbors) {
+					if (!closeList.contains(n)) {
+						openList.offer(n);
+						expansions++;
+					}
+				}
+			}
+		}
+		
+		//now the search is done. if a solution was found, the path can be generated.
+		if(foundSolution)
+		{
+			//this code creates the reverse order of the used path.
+			//follow the parent states until the start state is reached.
+			ShiftPuzzle current = c;
+			while (current != null) {
+				result.push(current);
+				current = current._parent;
+			}
+			//reverse path for correct order
+			Collections.reverse(result);
+		}
+		return new ResultCollection(foundSolution, result, expansions, closeList);
+	}
+
+	protected abstract Queue<ShiftPuzzle> getOpenQueueInstance(ShiftPuzzle end);
+}

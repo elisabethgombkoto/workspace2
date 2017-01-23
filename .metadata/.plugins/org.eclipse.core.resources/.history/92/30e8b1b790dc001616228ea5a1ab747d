@@ -1,0 +1,64 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
+import java.util.Stack;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public abstract class PuzzelSolver implements PuzzelSolveable {
+/* (non-Javadoc)
+ * @see hue10.puzzel8.PuzzelSolveable#solv(hue10.puzzel8.Puzzel8, hue10.puzzel8.Puzzel8)
+ */
+@Override
+public Solutions solv(Puzzel8 start, Puzzel8 end) {
+	boolean isSolved=start.equals(end);
+	
+	int expansion=0;
+	Stack<Puzzel8> result=new Stack<Puzzel8>();
+	Set<Puzzel8> closeList= new HashSet<Puzzel8>();
+	
+	Queue<Puzzel8> openList= getNextState(end);
+	Puzzel8 currentPuzzel8=start;
+	openList.offer(start);
+	
+	while(!openList.isEmpty()&& !isSolved){
+		 currentPuzzel8=openList.poll();
+		 closeList.add(currentPuzzel8);
+		 
+		if(!isSolved){
+			List<Puzzel8> children =currentPuzzel8.createPuzzel8State(currentPuzzel8);
+			for(Puzzel8 child: children){
+				if(!closeList.contains(child)){
+					openList.offer(child);
+					expansion++;
+				}
+			}
+		}
+	}
+	if(isSolved){
+		Puzzel8 current= currentPuzzel8;
+		while(current!=null){
+			result.push(current);
+			current=current.get_parent();
+		}
+		Collections.reverse(result);
+	}
+	return new Solutions(isSolved, result, expansion, closeList);
+}	
+	
+protected abstract Queue<Puzzel8> getNextState(Puzzel8 state);
+
+}

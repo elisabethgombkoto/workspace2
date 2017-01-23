@@ -1,0 +1,22 @@
+package hue06.task1.GarphErzeugen;
+
+public  abstract class AdjacencyStructure {
+	
+private int _numberOfVertiges;
+ 
+public AdjacencyStructure(int numberOfVertiges ){
+
+	_numberOfVertiges=numberOfVertiges;
+	
+}
+	
+	/**
+	 * @return the _numberOfVertiges
+	 */
+	public int get_numberOfVertiges() {
+		return _numberOfVertiges;
+	}
+
+	public abstract void  addEdgeToAdjacensyList(int startNode, int endNode, int weight);
+
+}

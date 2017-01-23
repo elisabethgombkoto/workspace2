@@ -1,0 +1,23 @@
+package hue06.task1.GarphErzeugen;
+
+import org.junit.Test;
+
+public class MatrixTest {
+	Integer name1 = 1;
+	Vertex<Integer> vertex1= new Vertex<Integer>(name1);
+	
+	Integer name2 = 2;
+	Vertex<Integer> vertex2= new Vertex(name2);
+	
+	Integer name3 = 3;
+	Vertex<Integer> vertex3= new Vertex(name3);
+	
+	@Test
+	public void test() {
+		
+		
+		
+		
+	}
+
+}

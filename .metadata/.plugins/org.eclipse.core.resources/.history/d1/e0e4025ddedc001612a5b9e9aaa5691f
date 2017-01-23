@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package hue10.SchiftPuzzle;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class H2ShiftPuzzleSolver {
+	@Override
+	protected Queue<ShiftPuzzle> getOpenQueueInstance(ShiftPuzzle end) {
+		return new PriorityQueue<ShiftPuzzle>(new Comparator<ShiftPuzzle>() {
+			@Override
+			public int compare(ShiftPuzzle first, ShiftPuzzle second) {
+				return (first.getAStarCost(end) - second.getAStarCost(end));
+			}
+		});
+	}
+}

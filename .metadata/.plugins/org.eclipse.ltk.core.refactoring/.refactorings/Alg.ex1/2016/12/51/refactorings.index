@@ -1,0 +1,60 @@
+1482161044082	Rename local variable 'dist'
+1482161387422	Rename local variable 'g'
+1482169244737	Rename local variable 'x'
+1482169911148	Rename local variable 'numElements'
+1482217232409	Rename method 'find'
+1482239334042	Rename local variable 'amountOfEdges'
+1482244940382	Delete element
+1482294467653	Rename local variable 'visitedEdges'
+1482294533436	Rename local variable 'edgesVisited'
+1482294808050	Rename method 'getVList'
+1482294901331	Rename method 'performPrim'
+1482295754962	Delete element
+1482295781333	Delete element
+1482296468195	Rename field '_eList'
+1482296476109	Rename field '_edgeList'
+1482298780907	Move file
+1482298793155	Move file
+1482307689562	Delete element
+1482307694830	Delete element
+1482307699779	Delete element
+1482307705121	Delete element
+1482307710340	Delete element
+1482307718492	Delete element
+1482307723764	Delete element
+1482312135676	Rename type 'Node'
+1482312164443	Rename field '_startNode'
+1482312214884	Rename field '_destNodeList'
+1482312238689	Rename local variable 'startNode'
+1482312255848	Rename local variable 'currentNode'
+1482312787839	Rename local variable 'edgesVisited'
+1482312810236	Rename local variable 'visitedEdges'
+1482313587853	Rename local variable 'currentNode'
+1482313616829	Rename local variable 'currentVertex'
+1482313903935	Rename field '_label'
+1482313924691	Rename method 'getLabel'
+1482314156100	Rename field '_listDestinationVertex'
+1482314265618	Rename method 'getDestNode'
+1482314300763	Rename field '_dest'
+1482314475692	Delete element
+1482317445026	Delete element
+1482317451961	Delete element
+1482317458037	Delete element
+1482317466044	Delete element
+1482318446372	Infer generic type arguments
+1482318492090	Move compilation unit
+1482318495361	Move compilation unit
+1482318502065	Move compilation unit
+1482318505932	Move compilation unit
+1482318514452	Move compilation unit
+1482318523677	Move compilation unit
+1482318531308	Move compilation unit
+1482318537307	Move compilation unit
+1482318543619	Move compilation unit
+1482319786645	Rename type 'RunMe'
+1482324214056	Delete element
+1482325029692	Rename local variable 'srcNode'
+1482325057254	Rename local variable 'destNode'
+1482325075848	Rename local variable 'srcVertex'
+1482325091719	Rename method 'getNode'
+1482329105753	Rename field '_amountOfVertex'

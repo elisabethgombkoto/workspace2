@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package hue10.ShiftPuzzle;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class H0Uninformed extends AbstractSchiftPuzzelSolver {
+	@Override
+	protected Queue<ShiftPuzzle> getOpenListInstance(ShiftPuzzle end) {
+		return new LinkedList<ShiftPuzzle>();
+	}
+	
+}

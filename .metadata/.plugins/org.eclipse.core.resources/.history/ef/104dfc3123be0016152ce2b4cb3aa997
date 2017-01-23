@@ -1,0 +1,37 @@
+package hue06.task1.GarphErzeugen;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class AdjacencyList<T> extends AdjacencyStructure<T> {
+	
+	private List<LinkedList<T> _adjacencyList= new ArrayList<LinkedList<T>() ;
+	private int _numberOfVertices;
+	
+public AdjacencyList(int numberOfVertices) {
+	super(numberOfVertices);
+	for(int i = 0; i < numberOfVertices; i++) {
+		_adjacencyList.addAll(new LinkedList<>());
+	}
+}
+
+public int get_numberOfVertices() {
+	return _numberOfVertices;
+}
+
+public void set_numberOfVertices(int _numberOfVertices) {
+	this._numberOfVertices = _numberOfVertices;
+}
+
+@Override
+public void addEdge(T vertexFrom, T vertexTo, boolean ) {
+	// TODO Auto-generated method stub
+	
+}
+	
+
+
+
+
+}

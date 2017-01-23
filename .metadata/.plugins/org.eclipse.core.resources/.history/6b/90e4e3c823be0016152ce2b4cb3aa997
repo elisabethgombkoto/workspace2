@@ -1,0 +1,85 @@
+package hue06.task1.GarphErzeugen;
+
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import hue06.task1.GarphErzeugen.Graph.AdjacencyStructureType;
+
+public class mainTest {
+
+	public static void main(String[] args) throws IOException {
+		Graph<Integer> graph = null;
+		
+		File file= new File("testdata\\graph.txt");
+		
+		
+		
+		
+//		FileUtil fileUtil= new FileUtil(file);
+//		ArrayList<Vertex<Integer>> array=new ArrayList<>();
+//		ArrayList<Edge<Vertex<Integer>>> edgeArray= new ArrayList<>();
+//		
+//		
+//		
+//		for(int i=0;i<array.size();i++){
+//			Vertex<Integer> vertex=array.get(i);
+//		System.out.println(vertex.get_name().toString());}
+//		
+//		
+		
+		
+		//ArrayList<Edge<Integer>> edges =null;
+	//ArrayList<Vertex<Integer>> vertiges=null;
+	//vertiges=getVertigesArrayFromFile(graphFileName);
+	//edges=getEdgesArrayFromFile(graphFileName);
+	
+
+	//graph.print();
+	//System.out.println(graph.hasEulerPath());
+	//System.out.println(graph.hasEulerCircle());
+		
+	}
+
+//	private static ArrayList<Edge<Integer>> getEdgesArrayFromFile(File graphFileName) throws FileNotFoundException {
+//		
+//		List<Integer> values= new ArrayList<Integer>();
+//		ArrayList<Edge<Integer>> edges= new ArrayList<>();
+//		Scanner scanner= new Scanner(graphFileName);
+//		String stringLine="";
+//		
+//		scanner.hasNextLine();	
+//		FileUtil fl= new FileUtil();
+//		
+//		values=fl.stringToIntegerArray(stringLine);
+//		
+//		int j= (values.size())/3;
+//		for(int i=0; i<j;i++){
+//			//TODO null pointer exeption, weil ich 3i brauch zum ein Object zu erzeugen aber nur mit einem erhöhe ich es!!!
+//			
+//			edges.add(new Edge<Integer>(new Vertex<Integer>(values.get(i)), new Vertex<Integer>(values.get(i+1)), values.get(i+2)));
+//			
+//		}
+//		scanner.close();
+//		return edges;
+//	}
+//
+//	private static ArrayList<Vertex<Integer>> getVertigesArrayFromFile(File graphFileName) throws FileNotFoundException {
+//		List<Integer> values= new ArrayList<Integer>();
+//		Scanner scanner= new Scanner(graphFileName);
+//		String stringLine="";
+//		
+//		scanner.hasNextLine();		
+//		FileUtil fl= new FileUtil();
+//		values=fl.stringToIntegerArray(stringLine);
+//					
+//	
+//		return null;
+//	}
+
+	
+
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" enocding="UTF-8"?>
+<addresses
+	xmlns="http://planb.voll.geil.org/adressen"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation:"http://planb.org/adressen adressen.xsd"
+<member>
+	<person>
+		<firstname>David</firstname>
+		<lastname>Hutter</lastname>
+		<address street="Im Hag 15" zip=6714 city="Nüziders">
+	<!--		<street>Im Hag 15</street>
+			<zip>6714</zip>
+			<city>Nüziders</city> -->
+		</address>
+		<email>dhutter92@gmail.com</email>
+		<phone>+436641775909</phone>
+		<date-of-birth>06.10.1992</date-of-birth>
+		<type-id>1</type-id>
+	</person>
+	<person>
+		<firstname>Dominik</firstname>
+		<lastname>Pröm</lastname>
+		<address>
+			<street>Alte Landstraße 15a</street>
+			<zip>6700</zip>
+			<city>Bludenz</city>
+		</address>
+		<email></email>
+		<phone></phone>
+		<date-of-birth></date-of-birth>
+		<type-id>1</type-id>
+	</person>
+</member>

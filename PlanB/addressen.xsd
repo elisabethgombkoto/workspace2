@@ -1,0 +1,34 @@
+<xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://planb.voll.geil.org/adressen"
+	elemntFormDefault="qualified">
+	
+	<xsd:complexType name="person-type">
+		<xsd:sequence>
+	</xsd:complexType>
+			<xsd:element ref="address" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="firstname" type="string" use="required">
+		<xsd:attribute name="lastname" type="string" use="required">
+		<xsd:attribute name="date-of-birth" type="date" use="required">
+		<xsd:attribute name="phone" type="string" use="required">
+		<xsd:attribute name="type-id" type="int" use="required">
+	</xsd:complexType>
+	<xsd:complexType name="address-type">
+		<xsd:sequence>
+			<xsd:element name="address" minOccurs="1" maxOccurs="unbounded">
+		</xsd:sequence>
+			<xsd:attribute name="street" type="string" use="required">
+			<xsd:attribute name="zip" type="int" use="required">
+			<xsd:attribute name="city" type="string" use="required">
+	</xsd:complexType>
+	<xsd:complexType name="member-list-type">
+		<xsd:sequence>
+			<xsd:element name="persons" minOccurs="1" maxOccurs="unbounded">
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="member-list" type="member-list-type"/>
+	<xsd:element name="persons" type="person-type"/>
+	<xsd:element name="addresses" type="address-type"/>
+</xsd:schema>

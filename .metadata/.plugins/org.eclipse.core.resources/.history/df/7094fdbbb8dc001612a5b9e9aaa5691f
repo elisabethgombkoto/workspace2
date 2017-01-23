@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class MainPuzzel8 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Puzzel8 start= new Puzzel8(){
+			
+		}
+
+	}
+
+}

@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.PriorityQueue;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public class H1 extends PuzzelSolver {
+
+	//pQueu compareTo
+
+}

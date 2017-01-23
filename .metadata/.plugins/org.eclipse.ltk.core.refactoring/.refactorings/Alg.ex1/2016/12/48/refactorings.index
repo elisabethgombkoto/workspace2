@@ -1,0 +1,25 @@
+1480670987879	Delete element
+1480675965483	Delete element
+1480676822244	Delete element
+1480677914110	Delete element
+1480681891225	Rename field '_nummerOfVertices'
+1480681907960	Rename local variable 'nummerOfVertices'
+1480690423220	Infer generic type arguments
+1480691728871	Encapsulate field '_weight'
+1480694150118	Delete element
+1480755389110	Delete element
+1480755977778	Rename field '_row'
+1480759940466	Encapsulate field '_vertexTo'
+1480759965616	Encapsulate field '_vertexFrom'
+1480759981481	Encapsulate field '_weight'
+1480760098978	Encapsulate field '_numberOfVertices'
+1480760113202	Encapsulate field '_numberOfVertices'
+1480761687046	Infer generic type arguments
+1480761841470	Infer generic type arguments
+1480784188258	Rename method 'set_unavailableWeight'
+1480846753397	Rename method 'stringToVerteges'
+1480846774896	Rename local variable 'vertiges'
+1480848140331	Encapsulate field '_name'
+1480851287657	Rename method 'fileToVertexArray'
+1480862043468	Rename method 'stringToIntegerArray'
+1480862080961	Rename method 'stringToIntArray'

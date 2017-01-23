@@ -1,0 +1,403 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017 WS_2016
+ */
+
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class Puzzle8 {
+	
+	private int[][] _state;
+	private Directions _direction;
+	private int _shift;
+	private Puzzle8 _parent;
+	private List<Puzzle8> _children=null;
+	
+	
+ public Puzzle8(int[][] state){
+	 if(state==null){
+		 throw new IllegalArgumentException("parameters may not be null");
+	 }
+	 if(state.length>3 ||  state[0].length>3 ){
+		 throw new IllegalArgumentException("invalid array size, max array size 3");
+	 }
+	 boolean hasHole=false;
+	 for (int i = 0; i < 3; i++) {
+	        for (int  j =0; j < 3; j++) {
+	        	if(state[i][j]==0){
+	        	 hasHole=true;//prüfen ob loch enthalten ist, prüfen ob nur ein loch enthalten ist	
+	        	}
+	        }
+	 }
+		
+	 _parent=null;
+	_state=state;
+	_shift=0;
+	
+ }
+ 
+
+  private Puzzle8(Puzzle8 parent, Directions direction) throws HoleNotExisteException{
+	  
+	if(parent.IsValideDirection(parent,direction)){		
+		_parent=parent;
+		this.set_shift(_parent.get_shift()+1);
+		_state=parent.copyContents(parent);
+		
+	}	
+	
+  }
+  
+  /**
+ * @param parent
+ * @return
+ */
+public List<Puzzle8> createListOfChildren(Puzzle8 parent){
+	if(_children==null){
+		
+		 _children =new LinkedList<Puzzle8>();
+		 Puzzle8 child=null;
+		 for(Directions dir : Directions.values()){
+			try {
+				child=new Puzzle8(parent,dir);
+					_children.add(child);
+				
+			
+			} catch (HoleNotExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+		 }
+	}
+	return _children;	 
+ }
+/**
+ * @param parent
+ * @param direction
+ * @return
+ * @throws HoleNotExisteException 
+ */
+public int[][] shiftPuzzle(Puzzle8 parent, Directions direction) throws HoleNotExisteException {
+	
+	int[][] state=parent.copyContents(parent);
+	Hole hole=parent.findHole(state);
+	
+	  switch (direction) {
+			case up:
+				state=swap(state,direction,hole);
+				break;
+			case down:
+				state=swap(state,direction,hole);
+				break;
+			case left:
+				state=swap(state,direction,hole);
+			break;
+			case right:
+				state=swap(state,direction,hole);
+			break;
+			default:
+			break;
+		  }		
+	return newState;
+	}
+
+/**
+ * @param state
+ * @param direction
+ * @param hole
+ * @return
+ */
+private int[][] swap(int[][] state, Directions direction, Hole hole) {
+	
+	switch (direction) {
+	case up:
+		state[hole._x][hole._y]=state[hole._x-1][hole._y];
+		state[hole._x-1][hole._y]=0;
+		break;
+	case down:
+		state[hole._x][hole._y]=state[hole._x+1][hole._y];
+		state[hole._x+1][hole._y]=0;
+		break;
+	case left:
+		state[hole._x][hole._y]=state[hole._x][hole._y-1];
+		state[hole._x][hole._y-1]=0;
+	break;
+	case right:
+		state[hole._x][hole._y]=state[hole._x][hole._y+1];
+		state[hole._x][hole._y+1]=0;
+	break;
+	default:
+	break;
+  }		
+	return state;
+}
+
+/**
+ * @param state
+ * @return
+ * @throws HoleNotExisteException 
+ */
+public Hole findHole(int[][] state) throws HoleNotExisteException {
+	
+	for (int i = 0; i < 3; i++) {
+        for (int  j =0; j < 3; j++) {
+        	if(state[i][j]==0){
+        	return new Hole(i,j); 
+        	}
+        }
+	}
+	throw new HoleNotExisteException(); 
+}
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+private class Hole{
+	private int _x;
+	private int _y;
+	private Hole (int x, int y){
+		_x=x;
+		_y=y;
+	}	
+}
+
+
+
+/**
+ * @param direction, of the provided movement
+ * @return true if the move allowed, else false 
+ * @throws HoleNotExisteException 
+ */
+private boolean IsValideDirection(Puzzle8 gamefield, Directions direction) throws HoleNotExisteException {
+	int[][] state=gamefield.get_gamefield();	
+	Hole hole=gamefield.findHole(state);
+	
+	 switch (direction) {
+		case up:
+			if(hole._x-1>=0){//ist es dass was ich will?
+				return true;
+			}
+			return false;
+		case down:
+			if(hole._x+1<3){
+			return true;
+			}
+			return false;
+		case left:
+			if(hole._y-1>=0){
+				return true;
+			}
+			return false;
+		case right:
+			if(hole._y+1<3){
+				return true;
+			}
+			return false;
+		default:
+			return false;
+	  }		
+}
+
+
+/**
+ * @param gamefield
+ * @return
+ */
+public int[][] copyContents(Puzzle8 gamefield) {
+	int[][] original=gamefield.get_gamefield();
+	int[][] copy= new int[3][3]; 
+
+    for (int i = 0; i < 3; i++) {
+        for (int  j =0; j < 3; j++) {
+            copy[i][j] = original[i][j];  
+        }
+    }
+	return copy;
+}
+public int H1Cost(Puzzle8 p){
+	return get_shift()+getErrorField(p);
+}
+
+
+/**
+ * @param end
+ * @return
+ */
+private int getErrorField(Puzzle8 end) {
+	int[][] p= end.get_state(); 
+	int error =0;
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			if(_state[i][j]!=p[i][j]){
+				error++;
+			}
+			
+		}
+	}
+	return error;
+}
+
+/**
+ * @param p
+ * @return
+ */
+public int H2Cost(Puzzle8 end){
+	return get_shift()+getSteps(end);
+}
+/**
+ * @param p
+ * @return
+ */
+private int getSteps(Puzzle8 end) {
+	int error=0;
+	int[][] e=end.get_gamefield();
+	int[] soll;
+	int[] ist;
+	for(int i=0; i<9; i++){
+		soll=getCoordinate(e, i);
+		ist=getCoordinate(_state, i);
+		error+=Math.abs(soll[0]-ist[0]);
+		error+=Math.abs(soll[1]-ist[1]);
+	}
+	return error;
+}
+
+/**
+ * @param state
+ * @param target
+ * @return
+ */
+private int[] getCoordinate(int [][] state, int target){
+	int[] coordinates = new int[2];
+	for(int i = 0; i < 3; i++){
+		for(int j = 0; j < 3; j++){
+			if(state[i][j] == target){
+				coordinates[0] = i;
+				coordinates[1] = j;
+				return coordinates;
+			}
+		}
+	}	
+	return null;
+}
+
+@Override
+public String toString() {
+	StringBuilder sb = new StringBuilder();
+	for (int i = 0; i < 3; i++) {
+		for(int j=0; j<3; j++){
+			sb.append(_state[i][j]);
+			if(i!= _state.length)
+				sb.append(" ");
+				if (i==2){
+					sb.append("\n");
+				}
+			}
+		}
+	return sb.toString();
+}
+
+@Override
+public boolean equals(Object obj) {
+	if(obj instanceof Puzzle8){
+	if( obj.hashCode()==this.hashCode()){
+		return true;
+		}
+	}
+	return false;
+}
+//	for(int i=0; i<3; i++){
+//		for(int j=0; j<3; j++){
+//		if(other[i][j]!=_state[i][j]){
+//			return false;
+//		}
+//		}
+//	}
+//	return true;
+//}
+
+@Override
+public int hashCode() {
+	
+	StringBuilder sb = new StringBuilder();
+	for(int i = 0; i < 3; i++){
+		for(int j=0; j<3; j++){
+			sb.append(_state[i][j]);	
+		}
+	}	
+String temp = sb.toString();
+System.out.println(temp);
+return temp.hashCode();
+}
+
+/**
+ * @return the _gamefield
+ */
+public int[][] get_gamefield() {
+	return _state;
+}
+
+/**
+ * @param _gamefield the _gamefield to set
+ */
+public void set_gamefield(int[][] _gamefield) {
+	this._state = _gamefield;
+}
+
+/**
+ * @return the _direction
+ */
+public Directions get_direction() {
+	return _direction;
+}
+
+/**
+ * @param _direction the _direction to set
+ */
+public void set_direction(Directions _direction) {
+	this._direction = _direction;
+}
+
+/**
+ * @return the _shift
+ */
+public int get_shift() {
+	return _shift;
+}
+
+/**
+ * @param _shift the _shift to set
+ */
+public void set_shift(int _shift) {
+	this._shift = _shift;
+}
+
+/**
+ * @return the _state
+ */
+public int[][] get_state() {
+	return _state;
+}
+
+/**
+ * @return the _parent
+ */
+public Puzzle8 get_parent() {
+	return _parent;
+}
+  
+}

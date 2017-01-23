@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.PriorityQueue;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public abstract class PuzzelSolver implements PuzzelSolveable {
+/* (non-Javadoc)
+ * @see hue10.puzzel8.PuzzelSolveable#solv(hue10.puzzel8.Puzzel8, hue10.puzzel8.Puzzel8)
+ */
+@Override
+public PriorityQueue<Puzzel8> solv(Puzzel8 start, Puzzel8 end) {
+	// TODO breiten suche implementieren
+	// close list
+	//open list --> erhalte instance von H1 und H2 und ohneH
+	//so lange OL nicht leer und SolutioFound() False wiederhole
+	//esrten knote priority queue raus poll();
+	//CL add()
+	//solution Found=curr puzzel8 .equals(end)
+	//nachbar holen wenn nicht im CL dann add zu OL
+	return null; 
+}
+}

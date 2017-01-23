@@ -1,0 +1,18 @@
+1479122770712	Rename method 'getLeaf'
+1479122787837	Rename method 'getLeafs'
+1479123278778	Rename method 'insert'
+1479123304350	Rename local variable 'root'
+1479123310367	Rename local variable 'newData'
+1479123952547	Rename local variable 'root'
+1479123962565	Rename local variable 'newValue'
+1479124953860	Rename local variable 'root'
+1479124965180	Rename local variable 'newValue'
+1479204234678	Infer generic type arguments
+1479290444042	Rename method 'getLevel'
+1479297965297	Delete element
+1479301898511	Infer generic type arguments
+1479303282373	Delete element
+1479303487724	Infer generic type arguments
+1479304041209	Rename local variable 'n'
+1479304729782	Infer generic type arguments
+1479305999191	Infer generic type arguments

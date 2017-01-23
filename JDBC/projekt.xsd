@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://planb.org/projekt"
+	xmlns="http://planb.org/projekt"
+	elementFormDefault="qualified">
+	
+	
+	<xsd:element name="person" type="person-type"/>
+	<xsd:element name="sponsor" type="sponsor-type"/>
+	<xsd:element name="member" type="member-type"/>
+	
+	<xsd:element name="address" type="address-type"/>
+	<xsd:element name="address-list" type="address-type"/>	
+	<xsd:element name="member-list" type="member-list-type"/>
+	<xsd:element name="sponsor-list" type="sponsor-list-type"/>		
+		
+	<xsd:element name="event" type="event-type"/>
+	<xsd:element name="location" type="location-type"/>
+	<xsd:element name="budget" type="budget-type"/>
+	<xsd:element name="budget-mitglieder-beitrag" type="budget-mitglieder-beitrag-type"/>	
+	<xsd:element name="donation-list" type="donation-list-type"/>
+	
+	<xsd:element name="donation" type="donation-type"/>
+	<xsd:element name="money-donation" type="money-donation-type"/>	
+	<xsd:element name="money-donation-list" type="money-donation-list-type"/>
+	<xsd:element name="item-donation" type="item-donation-type"/>	
+	<xsd:element name="item-donation-list" type="item-donation-list-type"/>
+	
+
+	
+	<xsd:complexType name="person-type">
+		<xsd:sequence>
+					<xsd:element ref="address" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+					<xsd:attribute name="id"		type="xsd:ID"/>
+					<xsd:attribute name="firstname" 	type="xsd:string" 	use="required"/>
+					<xsd:attribute name="lastname" 		type="xsd:string" 	use="required"/>
+					<xsd:attribute name="date-of-birth" type="xsd:date"	/>
+					<xsd:attribute name="phone" 		type="xsd:string"	use="required"/>
+					<xsd:attribute name="fee"			type="xsd:float"/>		
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="sponsor-type">
+		<xsd:all>
+					<xsd:element name="person"/>
+		</xsd:all>
+					<xsd:attribute name="company-name" type="xsd:string"/>
+	</xsd:complexType>	
+
+	
+	<xsd:complexType name="member-type">
+		<xsd:attribute name="id" type="xsd:IDREF"></xsd:attribute>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="address-type">
+					<xsd:attribute name="id"		type="xsd:ID"/>
+					<xsd:attribute name="street" 	type="xsd:string" 	use="required"/>
+					<xsd:attribute name="zip" 		type="xsd:int" 		use="required"/>
+					<xsd:attribute name="city" 		type="xsd:string" 	use="required"/>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="address-list-type">
+		<xsd:sequence>
+					<xsd:element ref="address" 	minOccurs="1"		maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	
+	<xsd:complexType name="member-list-type">
+		<xsd:sequence>
+					<xsd:element ref="member" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+		
+	<xsd:complexType name="sponsor-list-type">
+		<xsd:sequence>
+					<xsd:element ref="sponsor" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="event-type">
+		<xsd:all>			
+					<xsd:element 	ref="member-list"/>
+					<xsd:element 	ref="sponsor-list"/>
+					<xsd:element 	name="location"/>
+					<xsd:element 	name="budget-mitglieder-beitrag"/>
+					<xsd:element	name="donation-list"/>
+		</xsd:all>
+					<xsd:attribute 	name="id"		type="xsd:ID"/>
+					<xsd:attribute 	name="event-name"	type="xsd:string"/>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="location-type">
+		<xsd:sequence>
+					<xsd:element name="address" 			type="address-type"/> 
+					<xsd:element name="datum" 				type="xsd:date"/>
+		</xsd:sequence>			
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="budget-type">
+					<xsd:attribute name="purpose"			type="xsd:string" 	use="required"/>
+					<xsd:attribute name="amount"			type="xsd:int" 		use="required"/>
+					<xsd:attribute name="id"				type="xsd:ID"/>	
+	</xsd:complexType>
+	
+	<xsd:complexType name="budget-mitglieder-beitrag-type">
+			<xsd:sequence>
+				<xsd:element ref="budget" minOccurs="1" maxOccurs="unbounded"/>
+			</xsd:sequence>												
+	</xsd:complexType>	
+	
+	
+	<xsd:complexType name="donation-list-type">
+		<xsd:sequence>
+			<xsd:element ref="donation" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="donation-type">
+		<xsd:all>		
+					<xsd:element ref="item-donation-list"/>
+					<xsd:element ref="money-donation-list"/>
+		</xsd:all>
+					<xsd:attribute name="id"			type="xsd:ID"/>				
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="money-donation-type">		
+					<xsd:attribute name="amount" 			type="xsd:float" 	use="required"/>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="money-donation-list-type">
+			<xsd:sequence>
+					<xsd:element ref="money-donation" minOccurs="1" maxOccurs="unbounded"/>
+			</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="item-donation-type">
+					<xsd:attribute name="id"		type="xsd:ID"/>		
+					<xsd:attribute name="description" 		type="xsd:string" 	use="required"/>
+					<xsd:attribute name="amount" 			type="xsd:int" 		use="required"/>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="item-donation-list-type">
+			<xsd:sequence>
+					<xsd:element ref="item-donation" minOccurs="1" maxOccurs="unbounded"/>
+			</xsd:sequence>
+	</xsd:complexType>	
+	
+</xsd:schema>

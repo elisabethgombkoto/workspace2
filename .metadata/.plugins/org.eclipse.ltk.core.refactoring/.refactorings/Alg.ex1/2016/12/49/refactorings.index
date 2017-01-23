@@ -1,0 +1,68 @@
+1480926774336	Rename local variable 'g'
+1480926810181	Rename local variable 'br'
+1480926857094	Rename local variable 'sVertices'
+1480926894354	Rename local variable 'sEdges'
+1480926970939	Rename method 'addEdge'
+1480927029526	Rename method 'addEdge'
+1480927342025	Rename local variable 'sa'
+1480927368132	Rename local variable 'ia'
+1480927828356	Delete element
+1481010593216	Rename resource 'Untitled 1'
+1481010748962	Rename resource 'Untitled 2'
+1481012464312	Delete element
+1481012469911	Delete element
+1481012476928	Delete element
+1481012487298	Delete element
+1481012496266	Delete element
+1481012502950	Delete element
+1481012650886	Delete element
+1481012716222	Delete element
+1481014645255	Rename resource 'HouseOfNicolaus'
+1481014937711	Move file
+1481014953628	Rename resource 'has_no_path'
+1481014957623	Move file
+1481014964866	Rename resource 'hasEulerPhade'
+1481014967783	Move file
+1481015270661	Move file
+1481015656692	Move file
+1481027976712	Rename local variable 'visitedEdgesHashMap'
+1481032535881	Rename local variable 'startVertex'
+1481100344466	Rename method 'addEdgeToAdjacensyList'
+1481103419878	Rename field '_node1'
+1481103445080	Rename field '_node2'
+1481103472659	Rename method 'getNode1'
+1481103517959	Rename method 'getNode2'
+1481103532705	Rename method 'getFirstVertexFroxEdge'
+1481117675899	Rename field '_numOfVertices'
+1481117884499	Rename local variable 'sepLine'
+1481118111909	Rename method 'degree'
+1481118236571	Rename local variable 'index2'
+1481296594176	Delete element
+1481296885710	Encapsulate field '_numberOfVertiges'
+1481297062966	Delete element
+1481297123398	Delete element
+1481365573758	Delete element
+1481365661000	Delete element
+1481369338734	Encapsulate field '_operator'
+1481369355971	Encapsulate field '_value'
+1481369389006	Rename field 'operations'
+1481369445688	Delete element
+1481369481741	Delete element
+1481371786162	Delete element
+1481374503231	Move compilation unit
+1481374524515	Delete element
+1481374531889	Delete element
+1481374538268	Delete element
+1481375250207	Encapsulate field '_vertexFrom'
+1481375503689	Encapsulate field '_weight'
+1481382689551	Encapsulate field '_operator'
+1481382699685	Encapsulate field '_value'
+1481384137905	Encapsulate field '_value'
+1481386299424	Encapsulate field '_operator'
+1481388759183	Encapsulate field '_operand'
+1481389993535	Delete element
+1481389999659	Delete element
+1481390004814	Delete element
+1481391540791	Delete element
+1481393270129	Encapsulate field '_operation'
+1481394887343	Move file

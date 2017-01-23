@@ -1,0 +1,210 @@
+/**
+ * 
+ */
+package hue10.ShiftPuzzle;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class ShiftPuzzle {
+	private int _width = 1;
+	private int[] _state = null;
+	private List<ShiftPuzzle> _children = null;
+	public final ShiftPuzzle _parent;
+	private int _shifts;
+
+	public ShiftPuzzle(int[] data) {
+		if (data == null) {
+			throw new IllegalArgumentException("parameters may not be null.");
+		}
+		
+		this._width = (int) Math.sqrt(data.length);
+		if (Math.pow(_width, 2) != data.length) {
+			throw new IllegalArgumentException("bad data size.");
+		}
+
+		_state = new int[data.length];
+
+		boolean hasHole = false;
+		for (int i = 0; i < data.length; i++) {
+			_state[i] = data[i];
+			if (_state[i] == 0) {
+				if (!hasHole) {
+					hasHole = true;
+				} else {
+					throw new IllegalArgumentException("more than one hole (->0) defined. only define one.");
+				}
+			}
+		}
+		this._parent = null;
+		this._shifts = 0;
+	}
+	
+	private ShiftPuzzle(ShiftPuzzle parent, Direction d) {
+		this._parent = parent;
+		this._width = parent._width;
+		this._state = Arrays.copyOf(parent._state, parent._state.length);
+		this._shifts = parent._shifts + 1;
+		
+		for (int i = 0; i < _state.length; i++) {
+			if (_state[i] == 0) {
+				int pos = -1;
+				// hole found.
+				switch (d) {
+				case down:
+					pos = i + _width;
+					break;
+				case left:
+					pos = i - 1;
+					break;
+				case right:
+					pos = i + 1;
+					break;
+				case up:
+					pos = i - _width;
+					break;
+				}
+				int tmp = _state[pos];
+				_state[pos] = _state[i];
+				_state[i] = tmp;
+				break;
+			}
+		}
+	}
+
+	private boolean canShiftHole(Direction d) {
+		for (int i = 0; i < _state.length; i++) {
+			if (_state[i] == 0) {
+				// hole found.
+				switch (d) {
+				case down:
+					return i + _width < _state.length;
+				case left:
+					return i % _width != 0;
+				case right:
+					return i % _width != _width - 1;
+				case up:
+					return i - _width >= 0;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @return
+	 */
+	public List<ShiftPuzzle> getChildren() {
+		if(_children==null)
+		{
+			Direction[] directions = Direction.values();
+			_children = new ArrayList<ShiftPuzzle>(directions.length);
+
+			// neigbors are puzzle states which are valid
+			for (int i = 0; i < directions.length; i++) {
+				if (canShiftHole(directions[i])) {
+					ShiftPuzzle newNode = new ShiftPuzzle(this, directions[i]);
+					if(!newNode.equals(_parent))
+					{
+						_children.add(newNode);
+					}
+				}
+			}
+		}
+		return _children;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj==
+				null)
+			return false;
+		int[] other = ((ShiftPuzzle) obj)._state;
+		int i = 0;
+		while(i < _state.length && _state[i] == other[i])
+		{
+			i++;
+		}
+		return i == _state.length;
+	}
+
+	@Override
+	public int hashCode() {
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < _state.length; i++)
+		{
+			sb.append(_state[i]);
+		}
+		return sb.toString().hashCode();
+	}
+	
+	public int getGreedyCost(ShiftPuzzle p)
+	{
+		return _shifts
+				+ getH1(p);
+	}
+	
+	private int getH1(ShiftPuzzle p) {
+		// sum of wrong positions compared to desired state p
+		int amountOfDifferences = 0;
+		for(int i = 0; i < _state.length; i++)
+		{
+			if(_state[i] != p._state[i])
+			{
+				amountOfDifferences++;
+			}
+		}
+		return amountOfDifferences;
+	}
+
+	public int getAStarCost(ShiftPuzzle p)
+	{
+		return _shifts + getH2(p);
+	}
+	
+	private int getH2(ShiftPuzzle p) {
+		// sum of shifts needed to desired state p
+		int sumOfShiftsNeeded = 0;
+		int[][] table = new int[_state.length][2];
+		
+		for(int i = 0; i < _state.length; i++)
+		{
+			//0 this
+			//1 ->p
+			int pos1 = _state[i]%_state.length;
+			int pos2 = p._state[i]%_state.length;
+			table[pos1][0] = i;
+			table[pos2][1] = i;
+		}
+		
+		for(int i = 0; i < _state.length; i++)
+		{
+			int diff;
+			//add x differences
+			diff = Math.abs(table[i][0]%_width - table[i][1]%_width);
+			sumOfShiftsNeeded += diff;
+			//add y differences
+			diff = Math.abs(table[i][0] - table[i][1]) / _width;
+			sumOfShiftsNeeded += diff;
+		}
+		return sumOfShiftsNeeded;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < _state.length; i++) {
+			sb.append(_state[i]);
+			if(i+1 != _state.length)
+				sb.append(" ");
+			if (i % _width == _width - 1 && i+1 != _state.length)
+				sb.append("\n");
+		}
+		return sb.toString();
+	}
+}

@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public abstract class PuzzelSolver implements PuzzelSolveable {
+/* (non-Javadoc)
+ * @see hue10.puzzel8.PuzzelSolveable#solv(hue10.puzzel8.Puzzel8, hue10.puzzel8.Puzzel8)
+ */
+@Override
+public boolean solv(Puzzel8 start, Puzzel8 end) {
+	
+	Queue<Puzzel8> openList= new PriorityQueue<Puzzel8>();
+	Puzzel8 currentPuzzel8 =start.copy();
+	while (!Puzzel8.isSolved(start,end)&& openList.size()!=0){
+		
+		openList.poll();		
+		closeList.add();
+		
+	// liefert direction zurück getnextStep(PriorityQueu)
+	}
+	
+	// TODO tiefensuche  suche imp                                                                                                lementieren
+	// close list
+	//open list --> erhalte instance von H1 und H2 und ohneH
+	//so lange OL nicht leer und SolutioFound() False wiederhole
+	//ersten knote priority queue raus poll();
+	//CL add()
+	//solution Found=curr puzzel8 .equals(end)
+	//nachbar holen wenn nicht im CL dann add zu OL
+	return null; 
+}
+public abstract Queue<Puzzel8> getNextState(Puzzel8 state);
+}

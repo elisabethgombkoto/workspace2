@@ -1,0 +1,52 @@
+package hue04hue05.BinaereBaum.hue04;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class run {
+
+	public run() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		BinearTreeFaktory<Integer> btf = new BinearTreeFaktory<Integer>();
+		Tree<Integer> result = null;
+		Integer[] values = null;
+		try {
+			values = getArrayFromFile(new File("ue01testdata.txt"));
+			result=btf.getInstance(values);
+			System.out.println(result.toString()); 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private static Integer[] getArrayFromFile(File file) throws FileNotFoundException {
+		List<Integer> values = new ArrayList<Integer>();
+		values.add(null);
+		Scanner scanner = new Scanner(file);
+		while (scanner.hasNextInt()) {
+			values.add(scanner.nextInt());
+		}
+		scanner.close();
+		Integer[] v = new Integer[values.size() + 1];
+		
+		for(int i = 0; i < values.size(); i++)
+		{
+			v[i+1] = values.get(i);
+		}
+		for(int j=0; j<v.length;j++){
+			System.out.println(v[j]);
+		}
+		
+		return v;
+	}
+}

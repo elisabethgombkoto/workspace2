@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:event xmlns:p="http://planb.org/projekt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://planb.org/projekt projekt.xsd ">
+  <p:member-list>
+    <p:member/>
+  </p:member-list>
+  <p:sponsor-list>
+    <p:sponsor>
+      <p:person/>
+    </p:sponsor>
+  </p:sponsor-list>
+  <p:location/>
+  <p:budget-mitglieder-beitrag/>
+  <p:donation-list/>
+</p:event>

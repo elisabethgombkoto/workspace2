@@ -1,0 +1,59 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public class H1 extends PuzzelSolver  {
+
+	/* (non-Javadoc)
+	 * @see hue10.puzzel8.PuzzelSolver#getNextState(hue10.puzzel8.Puzzel8)
+	 */
+	@Override
+	public Queue<Puzzel8> getNextState(Puzzel8 state) {
+		
+		return new PriorityQueue<Puzzel8>(new Comparator<Puzzel8>(){
+			@Override
+			public int compare(Puzzel8 p1, Puzzel8 p2) {
+				int p1Cost=p1.get_shift()+p1.getErrorField();
+				int p2cost=p2.get_shift()+p2.getErrorField();
+				if(p1Cost<p2cost){
+					return -1;
+				}
+				if(p1Cost> p2cost){
+					return 1;
+				}
+				return 0;
+			}	
+		});		
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+	 */
+	@Override
+	public int compare(Puzzel8 o1, Puzzel8 o2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+
+	
+
+	
+
+	
+
+
+
+}

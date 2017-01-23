@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package hue10.puzzel8;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *14.01.2017WS_2016
+ */
+public class WithoutHeuristics extends PuzzelSolver {
+
+	/* (non-Javadoc)
+	 * @see hue10.puzzel8.PuzzelSolver#getNextState(hue10.puzzel8.Puzzel8)
+	 */
+	@Override
+	public Queue<Puzzel8> getNextState(Puzzel8 state) {
+		
+		Queue<Puzzel8> openList= new PriorityQueue<Puzzel8>();
+		
+		List<Puzzel8> children = new LinkedList<Puzzel8>();
+		children=state.createPuzzel8State(state);
+		for(Puzzel8 child : children){
+			
+	}
+
+
+
+
+	}
+
+}

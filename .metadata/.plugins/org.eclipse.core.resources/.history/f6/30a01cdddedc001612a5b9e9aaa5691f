@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package hue10.SchiftPuzzle;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class ShiftPuzzelTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

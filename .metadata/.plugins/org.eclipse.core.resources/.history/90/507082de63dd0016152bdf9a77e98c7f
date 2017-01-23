@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package hue10.ShiftPuzzle;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Comparator;
+
+/**
+ * @author ElisabethElisabeth Gombkötö
+ *17.01.2017WS_2016
+ */
+public class H1ShiftPuzzleSolver extends AbstractSchiftPuzzelSolver {
+	@Override
+	protected Queue<ShiftPuzzle> getOpenListInstance(ShiftPuzzle end) {
+		return new PriorityQueue<ShiftPuzzle>(new Comparator<ShiftPuzzle>() {
+			@Override
+			public int compare(ShiftPuzzle first, ShiftPuzzle second) {
+				return first.getGreedyCost(end) - second.getGreedyCost(end);
+			}
+		});
+	}
+}

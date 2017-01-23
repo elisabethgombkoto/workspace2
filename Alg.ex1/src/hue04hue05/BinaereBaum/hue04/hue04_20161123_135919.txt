@@ -1,0 +1,7 @@
+WARNING - 13:59:19: First conversion pass
+ERROR - 13:59:19: org.xml.sax.SAXParseExceptionpublicId: /Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; systemId: file:///Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; lineNumber: 1; columnNumber: 1; Content ist nicht zulässig in Prolog.
+ERROR - 13:59:19: org.xml.sax.SAXParseExceptionpublicId: /Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; systemId: file:///Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; lineNumber: 1; columnNumber: 1; Content ist nicht zulässig in Prolog.
+WARNING - 14:00:18: Convert hue04hue05.BinaereBaum.hue04
+WARNING - 14:00:18: First conversion pass
+ERROR - 14:00:18: org.xml.sax.SAXParseExceptionpublicId: /Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; systemId: file:///Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; lineNumber: 1; columnNumber: 1; Content ist nicht zulässig in Prolog.
+ERROR - 14:00:18: org.xml.sax.SAXParseExceptionpublicId: /Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; systemId: file:///Alg.ex1/src/hue04hue05/BinaereBaum/hue04/BinearSearchTree.java; lineNumber: 1; columnNumber: 1; Content ist nicht zulässig in Prolog.
